@@ -28,8 +28,8 @@ public class EstudianteController {
         return service.listar();
     }
 
-    @GetMapping
-    public Optional<Estudiante> buscar(String email) {
+    @GetMapping("/buscar")
+    public Optional<Estudiante> buscar(@RequestParam String email) {
         return service.buscar(email);
     }
 }
