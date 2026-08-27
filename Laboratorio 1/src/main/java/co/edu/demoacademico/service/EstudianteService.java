@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+// CAPA LÓGICA
+// Esta clase contiene las reglas y procesos del negocio.
+
 @Service
 public class EstudianteService {
 

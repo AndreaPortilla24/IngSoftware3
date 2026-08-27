@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+// CAPA DE PRESENTACIÓN
+// Esta clase recibe las solicitudes HTTP del cliente y devuelve
+// las respuestas correspondientes. Se comunica con la capa de lógica de negocio (Service)
+
 @RestController
 @RequestMapping("/api/estudiantes")
 public class EstudianteController {
@@ -29,7 +33,7 @@ public class EstudianteController {
     }
 
     @GetMapping("/buscar")
-    public Optional<Estudiante> buscar(@RequestParam String email) {
+    public Optional<Estudiante> buscar( String email) {
         return service.buscar(email);
     }
 }
