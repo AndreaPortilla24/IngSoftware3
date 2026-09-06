@@ -1,52 +1,18 @@
 package co.edu.demoacademico.service;
 
-import co.edu.demoacademico.repository.EstudianteRepository;
 import co.edu.demoacademico.model.Estudiante;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-import java.util.Optional;
+public interface EstudianteService {
 
-// CAPA LÓGICA
-// Esta clase contiene las reglas y procesos del negocio.
+    Estudiante crear(Estudiante e);
 
-@Service
-public class EstudianteService {
+    Estudiante obtenerPorId(Long id);
 
-    private final EstudianteRepository repository;
+    Page<Estudiante> listar(Pageable pageable);
 
-    public EstudianteService(EstudianteRepository repository) {
-        this.repository = repository;
-    }
+    Estudiante actualizar(Long id, Estudiante e);
 
-    public Estudiante crear(Estudiante estudiante) {
-
-        // ----------------------------
-        // ZONA DE LÓGICA DE NEGOCIO:
-        // Regla: email único
-        // ----------------------------
-        repository.findByEmail(estudiante.getEmail())
-                .ifPresent(e -> {
-                    throw new IllegalStateException("Email ya registrado");
-                });
-
-        // ============================
-        // ZONA DE ACCESO A LA BD:
-        // Persistencia vía Repository
-        // ============================
-        return repository.save(estudiante);
-    }
-
-    public List<Estudiante> listar() {
-        // ============================
-        // ZONA DE ACCESO A LA BD:
-        // Consulta vía Repository
-        // ============================
-        return repository.findAll();
-    }
-
-    public Optional<Estudiante> buscar(String email) {
-
-        return repository.findByEmail(email);
-    }
+    void eliminar(Long id);
 }
