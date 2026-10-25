@@ -2,6 +2,7 @@ package co.edu.demoacademico.estudiantes;
 
 import co.edu.demoacademico.common.exception.BusinessException;
 import co.edu.demoacademico.common.exception.NotFoundException;
+import co.edu.demoacademico.estudiantes.port.EstudianteQueryPort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class EstudianteServiceImpl implements EstudianteService {
+public class EstudianteServiceImpl implements EstudianteService, EstudianteQueryPort {
     private final EstudianteRepository repo;
 
     public EstudianteServiceImpl(EstudianteRepository repo) {

@@ -1,6 +1,7 @@
 package co.edu.demoacademico.grupos;
 
 import co.edu.demoacademico.common.exception.NotFoundException;
+import co.edu.demoacademico.grupos.port.GrupoQueryPort;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class GrupoServiceImpl implements GrupoService {
+public class GrupoServiceImpl implements GrupoService, GrupoQueryPort {
     private final GrupoRepository repo;
 
     public GrupoServiceImpl(GrupoRepository repo) {
