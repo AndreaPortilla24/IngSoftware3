@@ -3,8 +3,7 @@
 - Andrea Juliana Portilla Barrera
 - Oscar Julián Rondón Rendón
 
-# Laboratorio 3
-# demo-academico
+# Laboratorio 3 parte 2 - demo-academico
 
 Sistema académico: Programa → Asignatura → Grupo → Matrícula.
 
