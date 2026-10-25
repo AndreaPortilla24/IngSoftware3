@@ -8,7 +8,7 @@
 Sistema académico: Programa → Asignatura → Grupo → Matrícula.
 
 ## Cómo ejecutar
-1. Requisitos: Java 17 (o la versión de tu proyecto) y Maven.
+1. Requisitos: Java 17 y Maven.
 2. Ejecutar: `./mvnw spring-boot:run` (o correr `DemoAcademicoApplication` desde IntelliJ).
 
 ## URLs
