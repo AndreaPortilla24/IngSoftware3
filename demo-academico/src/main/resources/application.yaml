@@ -35,4 +35,3 @@ app:
   seed:
     enabled: true
     cantidad: 500
-    
