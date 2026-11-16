@@ -61,7 +61,3 @@ Dentro de Docker, consulta-service usa `SERVICES_AUTH_URL=http://auth-service:80
 4. Ejecutar `GET /api/estudiantes`. Swagger envía automáticamente `Authorization: Bearer <token>`.
 
 Resultados esperados: con token válido → 200; sin token → 401 `Token no enviado o formato inválido`; con token inválido o vencido → 401 `Token inválido o expirado`.
-
-## Evidencias
-
-Las capturas de las pruebas obligatorias están en la carpeta `evidencias/`.
