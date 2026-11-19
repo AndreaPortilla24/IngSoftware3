@@ -1,0 +1,24 @@
+
+erDiagram
+    USUARIO {
+        Long id PK
+    }
+
+    ESTUDIANTE {
+        Long id PK
+    }
+
+    CURSO {
+        Long id PK
+    }
+
+    MATRICULA {
+        Long id PK
+        Long estudianteId
+        Long cursoId
+    }
+
+    CALIFICACION {
+        Long id PK
+        Long matriculaId
+    }

@@ -1,0 +1,45 @@
+
+flowchart TB
+    U["Usuario / Cliente"]
+    SW["Swagger UI / APIs REST"]
+
+    U --> SW
+
+    subgraph SISTEMA["Sistema académico S3"]
+        AUTH["Auth Service<br/>Puerto 8081"]
+        EST["Estudiantes Service<br/>Puerto 8082"]
+        CUR["Cursos Service<br/>Puerto 8083"]
+        MAT["Matrículas Service<br/>Puerto 8084"]
+        CAL["Calificaciones Service<br/>Puerto 8085"]
+
+        AUTH --- DB1[("H2 Auth")]
+        EST --- DB2[("H2 Estudiantes")]
+        CUR --- DB3[("H2 Cursos")]
+        MAT --- DB4[("H2 Matrículas")]
+        CAL --- DB5[("H2 Calificaciones")]
+    end
+
+    SW --> AUTH
+    SW --> EST
+    SW --> CUR
+    SW --> MAT
+    SW --> CAL
+
+    EST -->|"OpenFeign"| AUTH
+    CUR -->|"OpenFeign"| AUTH
+    MAT -->|"OpenFeign"| AUTH
+    CAL -->|"OpenFeign"| AUTH
+
+    MAT -->|"Consulta estudiante"| EST
+    MAT -->|"Consulta curso y cupo"| CUR
+    EST -->|"Consulta matrículas activas"| MAT
+    CUR -->|"Consulta matrículas activas"| MAT
+    CAL -->|"Consulta matrícula"| MAT
+
+    classDef auth fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    classDef business fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef db fill:#fef3c7,stroke:#d97706,color:#78350f
+
+    class AUTH auth
+    class EST,CUR,MAT,CAL business
+    class DB1,DB2,DB3,DB4,DB5 db

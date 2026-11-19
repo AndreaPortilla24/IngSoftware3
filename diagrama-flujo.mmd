@@ -1,0 +1,23 @@
+
+sequenceDiagram
+    actor Usuario
+    participant MAT as Matriculas Service
+    participant AUTH as Auth Service
+    participant EST as Estudiantes Service
+    participant CUR as Cursos Service
+    participant DB as Base de datos H2
+
+    Usuario->>MAT: Solicita registrar matrícula
+    MAT->>AUTH: Validar token JWT
+    AUTH-->>MAT: Token válido
+
+    MAT->>EST: Consultar estudiante
+    EST-->>MAT: Información del estudiante
+
+    MAT->>CUR: Consultar curso y cupo
+    CUR-->>MAT: Información del curso
+
+    MAT->>DB: Guardar matrícula
+    DB-->>MAT: Confirmación
+
+    MAT-->>Usuario: Matrícula registrada
